@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/fragments :: head"></head>
+<body>
+
+<div th:replace="layout/fragments :: nav"></div>
+
+<div class="container">
+    <div class="row my-4">
+        <div class="card-container m-auto">
+            <div class="card  card-upload">
+                <div class="card-body">
+
+                    <table class="list-table">
+                        <thead class="hd-table">
+                        <th class="table-col ds-col">DESIGNER</th>
+                        <th class="table-col bg-col">BOARD GAMES</th>
+                        <th class="table-col country-col">COUNTRY</th>
+                        <th class="table-col id-col" th:if="${session.containsKey(userLogged)}">ID</th>
+                        <th class="table-col actions-col"></th>
+                        </thead>
+
+                        <tbody class="bd-table">
+                            <tr class="table-row" th:each="designer:${designers}">
+                                <td class="table-data ds-data" th:text="${designer.name}+' '+${designer.lastName}"></td>
+                                <td class="table-data bg-data">
+                                    <a class="action-link" href="#" th:text="${#lists.size(designer.games)}"></a>
+                                </td>
+                                <td class="table-data country-data" th:text="${designer.country}"></td>
+
+                                <td class="table-data id-data" th:text="${designer.id}" >
+                                    <!--th:if="${session.getAttribute(role)=='ADMIN'}"-->
+                                    </td>
+
+                                <td class="table-data" th:if="${session.containsKey('userLogged')}">
+                                    <div class="actions-data">
+                                        <a class="action-link" th:href="@{'/edit/designer/'+${designer.id}}"><i
+                                                class="bi bi-pen-fill"></i></a>
+                                        <a class="action-link" th:href="@{'/delete/designer/'+${designer.id}}"><i
+                                                class="bi bi-trash-fill"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="layout/fragments :: scripts"></th:block>
+
+</body>
+</html>

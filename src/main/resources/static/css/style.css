@@ -1,0 +1,558 @@
+.card-body{
+    padding:0;
+}
+
+.card-login{
+    padding:2rem;
+}
+
+.card-upload .card-title-bg{
+    margin:0;
+    padding:0;
+    font-family:"Lato";
+    font-weight:700;
+    font-size:1.25rem;
+    color:#808080;
+}
+
+.games-container{
+    box-sizing: border-box;
+    align-content: flex-start;
+    gap: 2.5rem 3.2rem;
+    padding: 0 1.25rem;
+}
+
+.game-container{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    margin: auto;
+}
+
+.title-container{
+    max-width:12.5rem;
+}
+
+.title-container .game-title{
+    margin:0;
+    font-size: 1.2rem;
+    font-family:"Lato";
+    font-weight:700;
+    color:#808080;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 80%;
+}
+
+.title-container .year{
+    margin:0;
+    font-size: 0.8rem;
+    font-family:"Lato";
+    font-weight:400;
+    color:#808080;
+    align-self:center;
+}
+
+.img-container{
+    box-sizing: border-box;
+    box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.4);
+}
+
+.img-container img{
+    width: 12.5rem;
+    height: 12.5rem;
+    object-fit: cover;
+    object-position:top;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color:#fafafa;
+    height:100%;
+    padding:0.5rem;
+}
+
+.field-a{
+    grid-column: 1/5;
+    grid-row: 1/2;
+    #grid-area:field-a;
+}
+.field-b{
+    grid-row: 2/3;
+    grid-column: 1/2;
+    #grid-area:field-b;
+}
+.field-c{
+    grid-column: 2/4;
+    grid-row: 2/3;
+    #grid-area:field-c;
+}
+.field-d{
+    grid-row: 2/3;
+    grid-column: 4/5;
+    #grid-area:field-d;
+}
+
+.field-e{
+    grid-row: 3/4;
+    grid-column: 1/5;
+    #grid-area:field-e;
+
+}
+
+.field-f{
+    grid-row: 4/5;
+    grid-column: 1/5;
+    #grid-area:field-e;
+}
+
+.field-g{
+    grid-column: 1/5;
+    grid-row: 5/6;
+    #grid-area:field-f;
+
+    display:flex;
+    flex-direction:column;
+}
+
+
+.card-game-form{
+    border:none;
+    border-radius:0.7rem;
+    width:42.5rem;
+    height:56.3rem;
+    box-sizing:border-box;
+    padding:2rem;
+    margin:auto;
+
+    box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.2);
+}
+
+.card-upload, .card-login{
+    border:none;
+    box-sizing:border-box;
+    padding:2rem;
+    margin:auto;
+    row-gap: 2rem;
+
+    box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.2);
+}
+
+.card-designer-form{
+    border:none;
+    box-sizing:border-box;
+    padding:2rem;
+    margin:auto;
+
+    box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.2);
+}
+
+.card-game-form .card-body,
+.card-upload-img .card-body{
+    padding:0;
+}
+
+.card-game-form .card-body form,
+.card-upload-img .card-body form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding:0;
+    margin:0;
+    height:100%;
+}
+
+
+.upload-field-container{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4.8rem 17rem;
+    row-gap: 2rem;
+}
+
+.fields-container{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(4, 4.8rem) 17rem;
+    column-gap: 1rem;
+    row-gap: 2rem;
+}
+
+.designer-fields-container{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 4.8rem);
+    row-gap: 2rem;
+    margin-bottom:3rem;
+}
+
+.form-label{
+    display:block;
+    font-family:"Lato";
+    font-weight:600;
+    font-size:0.8rem;
+    color:#858585;
+    margin:0;
+}
+
+.form-control{
+    border:none;
+    background-color:#fafafa;
+}
+
+.form-control:active, .form-control:focus{
+    border:none;
+    background-color:#fafafa;
+}
+
+#players{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+    align-items:center;
+}
+
+#max-players, #min-players{
+    max-width:30%;
+}
+
+.dash{
+    width:5%;
+    height:0.1rem;
+    background-color:#858585;
+}
+
+#designers select[multiple]{
+    height:1rem;
+}
+
+.designer{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.designer-names, .designer-lastnames, .designer-country{
+    max-width:33%;
+}
+
+#publisher{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.publisher-name, .publisher-web, .publisher-country{
+    max-width:33%;
+}
+
+
+.container-thumb{
+    flex-grow:2;
+    display:flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    padding-bottom:0.6rem;
+}
+
+.thumb-img-wrapper{
+    flex-grow:2;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#thumbnail-img{
+    max-width:10rem;
+    max-height:10rem;
+}
+
+
+.field input{
+    width:100%;
+    background-color:#fafafa;
+    border:none;
+    color:dark gray;
+    font-family:"Lato" ;
+    font-weight:700 ;
+    font-size:1rem ;
+}
+
+
+.field-b input, .field-d input{
+    width: 50%;
+    text-align: center;
+    align-self: center;
+}
+
+.field-c input[type="number"]{
+    text-align:center;
+}
+
+input:hover:not(.input-file-wrapper input){
+    border-bottom:0.08rem solid #dbdbdb;
+}
+
+
+input:focus:not(.input-file-wrapper input){
+    outline:none;
+    border-bottom:0.08rem solid #dbdbdb;
+}
+
+input:active:not(.input-file-wrapper input){
+    outline:none;
+    border-bottom:0.08rem solid #dbdbdb;
+}
+
+.input-file-wrapper{
+    align-self:center;
+    text-align:center;
+}
+
+.field input[type="file"]{
+    font-size:0.8rem;
+    font-weight:400;
+}
+
+
+.form-buttons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.spacer{
+    width:4rem;
+}
+
+.btns{
+    width:8.75rem;
+    height:2.9rem;
+    font-family:"Lato";
+    font-size:1.05rem;
+    font-weight:600;
+}
+
+.btn-primary{
+    box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.38);
+    -webkit-box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.38);
+    -moz-box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.38);
+}
+
+
+
+
+
+.nav-wrapper{
+        height: 4vw;
+        position: relative;
+        text-align: end;
+}
+.header-nav{
+    position: absolute;
+        bottom: 0;
+        right: 0;
+}
+
+.nav-link{
+    font-family:"Lato";
+    font-size:1.2rem;
+    font-weight:600;
+}
+
+
+
+.game-data-card{
+    padding: 1.8rem 2.5rem;
+    padding:2rem;
+    border:none;
+    border-radius:0.7rem;
+    box-sizing:border-box;
+    margin:auto;
+    box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.2);
+}
+
+.game-data-container{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    justify-content:space-between;
+        margin: 1.8rem 0;
+        padding: 0.7rem 0;
+}
+
+.game-data-title{
+    font-family:"Lato";
+    font-size:1.2rem;
+    font-weight:700;
+    margin:0 0 0.5rem 0;
+    padding:0;
+    color:#4D4D4D;
+}
+
+.game-data-content{
+    font-family:"Lato";
+        font-size:1rem;
+        font-weight:700;
+        margin:0;
+        padding:0;
+        color:#808080;
+}
+.bgg-link-container{
+        margin-top:0.4rem;
+        align-self:end;
+}
+.bgg-link{
+        font-family:"Lato";
+        font-size:0.9rem;
+        font-weight:700;
+        margin:0;
+        padding:0;
+        color:#4D4D4D;
+        text-decoration:none;
+}
+
+.player-data-min,
+.player-data-max{
+    display:inline;
+}
+
+.player-data-max::before{
+    content:"-";
+    margin:0;
+    padding:0;
+    margin-right:0.2rem;
+}
+
+.min-age-data::before{
+    content:"+";
+    margin:0;
+        padding:0;
+        margin-right:0.2rem;
+}
+
+#images-content{
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.img-search{
+    width:100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position:top;
+}
+
+.game-link{
+    text-decoration:none;
+    padding:0;
+    margin:0;
+}
+
+
+.card-container{
+    width:fit-content;
+}
+
+.list-table{
+    border-collapse:separate;
+    border-spacing:0 0.9rem;
+}
+
+.hd-table{
+    border:none;
+    margin:0;
+    padding:0;
+}
+
+.table-col{
+    font-family:"Lato";
+    font-weight:600;
+    font-size:0.9rem;
+    color:#4d4d4d;
+}
+
+
+.ds-col{
+    width:8.75rem;
+    max-width:8.75rem;
+}
+.bg-col,.country-col,.web-col{
+    width:8.12rem;
+    max-width:8.12rem;
+}
+.id-col{
+    width:5rem;
+    max-width:5rem;
+}
+.actions-col{
+    width:7.5rem;
+    max-width:7.5rem;
+}
+
+.table-row{
+    height:2.18rem;
+    max-height:2.18rem;
+    background-color:#fafafa;
+    margin-bottom:1rem;
+}
+.table-data{
+    font-family:"Lato";
+    font-weight:600;
+    font-size:0.8rem;
+    color:#808080;
+}
+
+.bg-col, .country-col, .id-col, .web-col,
+.bg-data, .country-data, .id-data, .web-data{
+    text-align:center;
+}
+
+.actions-data{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+}
+
+.action-link{
+    text-decoration:none;
+}
+
+.ds-col,.ds-data{
+    padding-left:0.625rem;
+}
+
+.actions-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    column-gap: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.actions-container a {
+    text-decoration:none;
+}

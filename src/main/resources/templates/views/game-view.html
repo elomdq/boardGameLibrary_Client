@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/fragments :: head"></head>
+
+<body>
+    <div th:replace="layout/fragments :: nav"></div>
+
+    <div th:if="${path!=null}" th:text="${path}"></div>
+
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-6 m-auto">
+                <div class="card  game-data-card">
+
+                    <div class="card-body">
+
+
+                            <div th:if="${session.containsKey('userLogged')}" class="actions-container">
+                                <a th:href="@{/edit/game(id=${game.id})}">
+                                    <i class="bi bi-pen-fill"></i>
+                                </a>
+                                <a th:href="@{/delete/game(id=${game.id})}">
+                                    <i class="bi bi-trash-fill"></i>
+                                </a>
+                            </div>
+
+                        <div class="game-container">
+                            <div class="title-container d-flex flex-row flex-wrap justify-content-between align-items-start mb-2">
+                                <p th:text="${game.name}" class="game-title">Board Game Name</p>
+                                <p th:text="(${game.bgYear})" class="year">Released Year</p>
+                            </div>
+                            <div class="img-container">
+                                <img th:if="${game.images.size()>0}" th:src="@{'/assets/img/'+${game.id}+'/'+${game.images.get(0).name}}" th:alt="${game.name}">
+                                <img th:unless="${game.images.size()>0}" th:src="@{/assets/img/pic3043734.jpg}" th:alt="${game.name}">
+                            </div>
+                            <div class="bgg-link-container">
+                                <a th:href="${game.bgg}" class="bgg-link">
+                                    BGG
+                                    <i class="bi bi-link"></i>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <div class="game-data-container">
+                            <div class="designers-data">
+                                <div>
+                                    <p class="game-data-title">Designer/s</p>
+                                </div>
+                                <div>
+                                    <p th:each="designer: ${game.designers}" class="game-data-content" th:text="${designer.name}+' '+${designer.lastName}">Designer Name</p>
+                                </div>
+                            </div>
+                            <div class="publisher-data">
+                                <div>
+                                    <p class="game-data-title">Publisher/s</p>
+                                </div>
+                                <div>
+                                    <p th:each="publisher: ${game.publishers}" class="game-data-content" th:text="${publisher.name}">Publisher Name</p>
+                                </div>
+                            </div>
+                            <div class="players-data">
+                                <div>
+                                    <p class="game-data-title">Player/s</p>
+                                </div>
+                                <div>
+                                    <p th:text="${game.minPlayers}" class="game-data-content player-data-min">Minimum Players</p>
+                                    <p th:text="${game.maxPlayers}" class="game-data-content player-data-max">Maximum Players</p>
+                                </div>
+                            </div>
+                            <div class="age-data">
+                                <div>
+                                    <p class="game-data-title">Age</p>
+                                </div>
+                                <div>
+                                    <p th:text="${game.minAge}" class="game-data-content min-age-data">Minimum Age</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="game-images">
+                            <div>
+                                <p class="game-data-title">Images</p>
+                            </div>
+                            <div id="images-content">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="layout/fragments :: scripts"></th:block>
+
+</body>
+
+</html>

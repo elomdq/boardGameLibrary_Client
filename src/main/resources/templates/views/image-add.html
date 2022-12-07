@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/fragments :: head"></head>
+<body>
+
+<div th:replace="layout/fragments :: nav"></div>
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-8 m-auto">
+            <div class="card card-upload">
+                <p class="card-title-bg">Upload Board Game front cover</p>
+
+                <div class="card-body">
+
+                    <form method="post" th:action="@{'/image/add'}" enctype="multipart/form-data">
+
+                        <div class="upload-field-container">
+
+                            <div class="field">
+                                <label class="form-label" for="game">BOARD GAME</label>
+                                <select id="game" class="form-select " name="gameId" required>
+                                    <option disabled>Elige el juego</option>
+                                    <option th:each="game:${games}" th:value="${game.id}" th:text="${game.name}">Game
+                                        Name
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label class="form-label" for="file">IMAGE</label>
+                                <div class="container-thumb">
+                                    <div class="thumb-img-wrapper">
+                                        <img id="thumbnail-img" src="" alt=""/>
+                                    </div>
+
+                                    <div class="input-file-wrapper">
+                                        <input class="" type="file" name="file" id="file" onchange="readURL(this);"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-buttons">
+                                <button type="submit" class="btn btn-primary btns">UPLOAD</button>
+                                <div class="spacer"></div>
+                                <a th:href="@{/game/list}" class="btn-cancel btns">
+                                    <button type="button" class="btn btn-secondary btns">CANCEL</button>
+                                </a>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="layout/fragments :: scripts"></th:block>
+
+</body>
+</html>

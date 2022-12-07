@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="layout/fragments :: head"></head>
+
+<body>
+<div th:replace="layout/fragments :: nav"></div>
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-10 m-auto">
+
+            <div class="games-container d-flex flex-row flex-wrap justify-content-evenly">
+
+                <div th:each="game:${games}" class="game-container">
+                    <div class="title-container d-flex flex-row flex-wrap justify-content-between align-items-start mb-2">
+                        <p class="game-title" th:text="${game.name}"></p>
+                        <p class="year" th:text="${game.bgYear}"></p>
+                    </div>
+                    <div class="img-container">
+                        <a th:href="@{'/boardgames/view/'+${game.id}}" class="game-link">
+                            <img th:if="${#lists.size(game.images)==0}" src="/assets/img/pic3043734.jpg" th:src="@{/assets/img/pic3043734.jpg}" th:alt="${game.name}"/>
+                            <img th:if="${#lists.size(game.images)>0}" th:src="@{/assets/img/${game.id}/${game.images.get(0).img.name}}" th:alt="${game.name}"/>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="layout/fragments :: scripts"></th:block>
+
+</body>
+
+</html>
+
