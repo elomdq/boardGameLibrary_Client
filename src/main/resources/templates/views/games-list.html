@@ -19,8 +19,8 @@
                     </div>
                     <div class="img-container">
                         <a th:href="@{'/boardgames/view/'+${game.id}}" class="game-link">
-                            <img th:if="${#lists.size(game.images)==0}" src="/assets/img/pic3043734.jpg" th:src="@{/assets/img/pic3043734.jpg}" th:alt="${game.name}"/>
-                            <img th:if="${#lists.size(game.images)>0}" th:src="@{/assets/img/${game.id}/${game.images.get(0).img.name}}" th:alt="${game.name}"/>
+                            <img th:if="${#lists.size(game.images)==0}" src="/assets/img/pic3043734.jpg" th:src="@{'/assets/img/pic3043734.jpg'}" th:alt="${game.name}"/>
+                            <img th:if="${#lists.size(game.images)>0}" th:src="@{'/temp/'+${game.id}+'/'+${game.images.get(0).name}}" th:alt="${game.name}"/>
                         </a>
                     </div>
                 </div>

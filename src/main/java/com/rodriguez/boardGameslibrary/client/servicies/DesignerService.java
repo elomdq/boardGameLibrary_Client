@@ -1,8 +1,10 @@
 package com.rodriguez.boardGameslibrary.client.servicies;
 
 import com.rodriguez.boardGameslibrary.client.models.Designer;
+import com.rodriguez.boardGameslibrary.client.models.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -40,6 +42,30 @@ public class DesignerService {
         List<Designer> designers = rateResponse.getBody();
 
         return designers;
+    }
+
+    public Designer byId(Long id){
+        return restTemplate.getForObject("/designers/"+id, Designer.class);
+    }
+
+
+    public Designer save(Designer designer){
+
+        HttpEntity<Designer> designerEntity = new HttpEntity<>(designer);
+        return restTemplate.postForObject("/designers", designerEntity,Designer.class);
+    }
+
+    public Designer edit(Designer designer, Long id){
+        HttpEntity<Designer> requestUpdate = new HttpEntity<>(designer);
+
+        Designer editedDesigner = restTemplate.exchange("/designers/"+id, HttpMethod.PUT, requestUpdate, Designer.class).getBody();
+
+        return editedDesigner;
+    }
+
+    public void delete(Long id){
+
+        restTemplate.delete("/designers/"+id);
     }
 
 }

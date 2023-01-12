@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/fragments :: head"></head>
+<body>
+
+<div th:replace="layout/fragments :: nav"></div>
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-6 m-auto">
+            <div class="card card-login">
+
+                <div class="card-body">
+
+                    <form method="post" th:action="@{/login}">
+                        <div class="field mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input name="username" type="text" class="" id="username" required>
+                        </div>
+                        <div class="field mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input name="password" type="password" class="" id="password" required>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary btns">Login</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

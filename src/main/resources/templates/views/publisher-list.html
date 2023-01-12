@@ -25,7 +25,7 @@
                         <tr class="table-row" th:each="publisher:${publishers}">
                             <td class="table-data ds-data" th:text="${publisher.name}"></td>
                             <td class="table-data bg-data">
-                                <a class="action-link" href="#" th:text="${#lists.size(publisher.games)}"></a>
+                                <a class="action-link" th:href="@{'/boardgames/list/by-publisher/'+${publisher.id}}" th:text="${#lists.size(publisher.games)}"></a>
                             </td>
                             <td class="table-data country-data" th:text="${publisher.country}"></td>
                             <td class="table-data web-data">
@@ -37,9 +37,9 @@
                             </td>
                             <td class="table-data" th:if="${session.containsKey('userLogged')}">
                                 <div class="actions-data">
-                                    <a class="action-link" th:href="@{'/edit/publisher/'+${publisher.id}}"><i
+                                    <a class="action-link" th:href="@{'/publisher/edit/'+${publisher.id}}"><i
                                             class="bi bi-pen-fill"></i></a>
-                                    <a class="action-link" th:href="@{'/delete/publisher/'+${publisher.id}}"><i
+                                    <a class="action-link" th:href="@{'/publisher/delete/'+${publisher.id}}"><i
                                             class="bi bi-trash-fill"></i></a>
                                 </div>
                             </td>

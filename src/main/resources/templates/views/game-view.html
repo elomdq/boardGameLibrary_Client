@@ -31,7 +31,7 @@
                                 <p th:text="(${game.bgYear})" class="year">Released Year</p>
                             </div>
                             <div class="img-container">
-                                <img th:if="${game.images.size()>0}" th:src="@{'/assets/img/'+${game.id}+'/'+${game.images.get(0).name}}" th:alt="${game.name}">
+                                <img th:if="${game.images.size()>0}" th:src="@{'/temp/'+${game.id}+'/'+${game.images.get(0).name}}" th:alt="${game.name}">
                                 <img th:unless="${game.images.size()>0}" th:src="@{/assets/img/pic3043734.jpg}" th:alt="${game.name}">
                             </div>
                             <div class="bgg-link-container">

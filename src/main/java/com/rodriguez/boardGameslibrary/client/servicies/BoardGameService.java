@@ -3,6 +3,7 @@ package com.rodriguez.boardGameslibrary.client.servicies;
 import com.rodriguez.boardGameslibrary.client.models.BoardGame;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -35,12 +36,41 @@ public class BoardGameService {
         return response.getBody();
     }
 
+    public List<BoardGame> listByDesignerId(Long designerId){
+        /*Mono<List<BoardGame>> response = client.get().uri("/list").accept(MediaType.APPLICATION_JSON).retrieve().bodyToMono(new ParameterizedTypeReference<List<BoardGame>>() {});
+        return response.block();*/
+
+        ResponseEntity<List<BoardGame>> response = restTemplate.exchange("/boardgames/list/by-designer/"+designerId, HttpMethod.GET, null, new ParameterizedTypeReference<List<BoardGame>>() {
+        });
+
+        return response.getBody();
+    }
+
+    public List<BoardGame> listByPublisherId(Long publisherId){
+        /*Mono<List<BoardGame>> response = client.get().uri("/list").accept(MediaType.APPLICATION_JSON).retrieve().bodyToMono(new ParameterizedTypeReference<List<BoardGame>>() {});
+        return response.block();*/
+
+        ResponseEntity<List<BoardGame>> response = restTemplate.exchange("/boardgames/list/by-publisher/"+publisherId, HttpMethod.GET, null, new ParameterizedTypeReference<List<BoardGame>>() {
+        });
+
+        return response.getBody();
+    }
+
     public BoardGame byId(Long id){
         /*Mono<BoardGame> response = client.get().uri("/{id}",id).accept(MediaType.APPLICATION_JSON).retrieve().bodyToMono(BoardGame.class);
         return response.block();*/
 
         BoardGame game = restTemplate.getForObject("/boardgames/"+id, BoardGame.class);
         return game;
+    }
+
+    public BoardGame save(BoardGame game){
+
+        HttpEntity<BoardGame> gameEntity = new HttpEntity<>(game);
+
+        BoardGame persistedGame = restTemplate.postForObject("/boardgames",gameEntity, BoardGame.class);
+
+        return persistedGame;
     }
 
 }

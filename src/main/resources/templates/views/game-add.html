@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/fragments :: head">
+</head>
+<body>
+
+<div th:replace="layout/fragments :: nav"></div>
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-8 m-auto">
+            <div class="card card-game-form">
+
+                <div class="card-body">
+
+                    <form action="" th:action="@{/boardgames/add}" method="post" th:object="${game}"  enctype="multipart/form-data">
+
+                        <div class="fields-container">
+
+                            <div class="field field-a">
+                                <label class="form-label" for="name">NAME</label>
+                                <input id="name" name="name" class="" type="text" th:field="*{name}" required>
+                            </div>
+
+                            <div class="field field-b">
+                                <label class="form-label" for="datepicker">YEAR</label>
+                                <input id="datepicker" name="bgYear" class="" type="text" th:field="*{bgYear}">
+                            </div>
+
+                            <div class="field field-c">
+                                <label class="form-label" for="players">PLAYERS</label>
+
+                                <div class="" id="players">
+                                    <input id="min-players" name="minPlayers" class="" type="number" th:field="*{minPlayers}">
+                                    <div class="dash"></div>
+                                    <input id="max-players" name="maxPlayers" class=" max-players" type="number" th:field="*{maxPlayers}">
+                                </div>
+                            </div>
+
+                            <div class="field field-d">
+                                <label class="form-label" for="min-age">AGE</label>
+                                <input id="min-age" name="minAge" class="" type="number" th:field="*{minAge}">
+                            </div>
+
+                            <div class="field field-e">
+                                <label class="form-label" for="designers">DESIGNER/S</label>
+                                <div class="designer" id="designers">
+                                    <input name="designer[0]" class="designer-names" type="text" placeholder="Name/s">
+                                    <input name="designer[0]" class="designer-lastnames" type="text" placeholder="Lastname/s">
+                                    <input name="designer[0]" class="designer-country" type="text" placeholder="Country">
+                                </div>
+                            </div>
+
+                            <div class="field field-f">
+                                <label class="form-label" for="publisher">PUBLISHER/S</label>
+                                <input id="publisher" name="publisher" class="" type="text">
+                            </div>
+
+                            <div class="field field-g">
+                                <label class="form-label" for="file">IMAGE</label>
+                                <div class="container-thumb">
+                                    <div class="thumb-img-wrapper">
+                                        <img id="thumbnail-img" src="" alt="" />
+                                    </div>
+                                    <div class="input-file-wrapper">
+                                        <input class="" type="file" name="file" id="file" onchange="readURL(this);"/>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary btns">ADD</button>
+                            <div class="spacer"></div>
+                            <a href="#" class="btn-cancel btns"><button type="button" class="btn btn-secondary btns">CANCEL</button></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="layout/fragments :: scripts"></th:block>
+
+</body>
+</html>

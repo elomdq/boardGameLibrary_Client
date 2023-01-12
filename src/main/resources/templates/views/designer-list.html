@@ -24,7 +24,7 @@
                             <tr class="table-row" th:each="designer:${designers}">
                                 <td class="table-data ds-data" th:text="${designer.name}+' '+${designer.lastName}"></td>
                                 <td class="table-data bg-data">
-                                    <a class="action-link" href="#" th:text="${#lists.size(designer.games)}"></a>
+                                    <a class="action-link" th:href="@{'/boardgames/list/by-designer/'+${designer.id}}" th:text="${#lists.size(designer.games)}"></a>
                                 </td>
                                 <td class="table-data country-data" th:text="${designer.country}"></td>
 
@@ -34,9 +34,9 @@
 
                                 <td class="table-data" th:if="${session.containsKey('userLogged')}">
                                     <div class="actions-data">
-                                        <a class="action-link" th:href="@{'/edit/designer/'+${designer.id}}"><i
+                                        <a class="action-link" th:href="@{'/designer/edit/'+${designer.id}}"><i
                                                 class="bi bi-pen-fill"></i></a>
-                                        <a class="action-link" th:href="@{'/delete/designer/'+${designer.id}}"><i
+                                        <a class="action-link" th:href="@{'/designer/delete/'+${designer.id}}"><i
                                                 class="bi bi-trash-fill"></i></a>
                                     </div>
                                 </td>

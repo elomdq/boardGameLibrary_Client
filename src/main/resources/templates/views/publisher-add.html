@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/fragments :: head">
+</head>
+<body>
+
+<div th:replace="layout/fragments :: nav"></div>
+
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-8 m-auto">
+            <div class="card  card-upload">
+                <p class="card-title-bg">Add a Publisher</p>
+                <div class="card-body">
+                    <form th:action="@{/publisher/add}" method="post" th:object="${publisher}">
+
+                        <div class="designer-fields-container">
+                            <div class="field">
+                                <label class="form-label" for="name">PUBLISHER NAME</label>
+                                <input id="name" name="name" class="" type="text" th:field="*{name}" required>
+                            </div>
+
+                            <div class="field">
+                                <label class="form-label" for="web">WEB</label>
+                                <input id="web" name="web" class="" type="text" th:field="*{web}">
+                            </div>
+
+                            <div class="field">
+                                <label class="form-label" for="country">COUNTRY</label>
+                                <input id="country" name="country" class="" type="text" th:field="*{country}">
+                            </div>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary btns">ADD</button>
+                            <div class="spacer"></div>
+                            <a href="../game/list" class="btn-cancel btns"><button type="button" class="btn btn-secondary btns">CANCEL</button></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<th:block th:replace="layout/fragments :: scripts"></th:block>
+
+</body>
+</html>

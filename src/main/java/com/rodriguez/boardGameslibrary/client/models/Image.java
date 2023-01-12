@@ -20,7 +20,7 @@ public class Image implements Serializable {
     private String name;
     private String img;
 
-    //@JsonIgnoreProperties({"publishers", "artists", "designers", "images"})
+    @JsonIgnoreProperties({"publishers", "artists", "designers", "images"})
     //@JsonBackReference
     private BoardGame game;
 
