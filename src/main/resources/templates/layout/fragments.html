@@ -15,48 +15,63 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 
-    <link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+    <link href="/css/style.css" th:href="@{/css/style2.css}" rel="stylesheet">
+    <link href="/css/style.css" th:href="@{/css/custom.css}" rel="stylesheet">
+    <link href="/css/btns.css" th:href="@{/css/btns.css}" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="container" th:fragment="nav">
-    <div class="row mb-5">
+<div class="container nav-container" th:fragment="nav">
+    <div class="row my-5">
         <div class="col-10 m-auto nav-wrapper">
 
             <nav class="header-nav">
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" th:href="@{/boardgames/list}">Games</a>
-                    </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">List</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" th:href="@{/designer/list}">Designers</a></li>
-                            <li><a class="dropdown-item" th:href="@{/publisher/list}">Publishers</a></li>
-                        </ul>
-                    </li>
+                <div id="ham-navigation" class="ham-menu">
+                    <ul class="nav justify-content-end menu">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" th:href="@{/boardgames/list}">Games</a>
+                        </li>
 
-
-                        <li th:if="${session.containsKey('user')}"  class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Add</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">List</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" th:href="@{/boardgames/form}">Board Game</a></li>
-                                <li><a class="dropdown-item" th:href="@{/designer/form}">Designer</a></li>
-                                <li><a class="dropdown-item" th:href="@{/publisher/form}">Publisher</a></li>
-                                <li><a class="dropdown-item" th:href="@{/image/form}">Game Cover</a></li>
+                                <li><a class="dropdown-item" th:href="@{/designer/list}">Designers</a></li>
+                                <li><a class="dropdown-item" th:href="@{/publisher/list}">Publishers</a></li>
                             </ul>
                         </li>
 
 
-                        <li th:if="${session.containsKey('userLogged')}" class="nav-item">
-                            <a class="nav-link" aria-current="page" th:href="@{/logout}">Logout</a>
-                        </li>
-                        <li th:if="${not session.containsKey('userLogged')}" class="nav-item">
-                            <a class="nav-link" aria-current="page" th:href="@{/login}">Login</a>
-                        </li>
-                </ul>
+                            <li th:if="${session.containsKey('user')}"  class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Add</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" th:href="@{/boardgames/form}">Board Game</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/designer/form}">Designer</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/publisher/form}">Publisher</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/image/form}">Game Cover</a></li>
+                                </ul>
+                            </li>
+
+
+                            <li th:if="${session.containsKey('userLogged')}" class="nav-item">
+                                <a class="nav-link" aria-current="page" th:href="@{/logout}">Logout</a>
+                            </li>
+                            <li th:if="${not session.containsKey('userLogged')}" class="nav-item">
+                                <a class="nav-link" aria-current="page" th:href="@{/login}">Login</a>
+                            </li>
+                    </ul>
+                </div>
+
+                    <div class="nav-toogle-container">
+                        <div class="menu-cover"></div>
+                        <button id="hamburger-menu" data-toggle="ham-navigation" class="hamburger-menu-button nav-toogle">
+                            <span class="hamburger-menu-button-open"></span>
+                        </button>
+                    </div>
+
+
+
             </nav>
 
         </div>
@@ -64,7 +79,8 @@
 </div>
 
 <th:block th:fragment="scripts">
-    <script th:src="@{/assets/js/actions.js}"></script>
+    <script th:src="@{/js/actions.js}"></script>
+    <script th:src="@{/js/nav.js}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"

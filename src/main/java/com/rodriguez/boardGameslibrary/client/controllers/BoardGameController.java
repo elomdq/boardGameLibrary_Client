@@ -1,7 +1,6 @@
 package com.rodriguez.boardGameslibrary.client.controllers;
 
 import com.rodriguez.boardGameslibrary.client.models.BoardGame;
-import com.rodriguez.boardGameslibrary.client.models.Image;
 import com.rodriguez.boardGameslibrary.client.servicies.BoardGameService;
 import com.rodriguez.boardGameslibrary.client.servicies.ImageService;
 import com.rodriguez.boardGameslibrary.client.uploadingfiles.UploadService;
@@ -25,20 +24,25 @@ public class BoardGameController {
     @Autowired
     private ImageService imageService;
 
+//    @GetMapping("/list")
+//    public String gamesList(Model model){
+//
+//        List<BoardGame> games = boardGameService.list();
+//
+//        if(!games.isEmpty()){
+//            games.forEach(g -> {
+//                g.setImages(imageService.listByGameId(g.getId()));
+//            });
+//        }
+//
+//        model.addAttribute("games", games);
+//
+//        return "/views/games-list";
+//    }
     @GetMapping("/list")
     public String gamesList(Model model){
 
-        List<BoardGame> games = boardGameService.list();
-
-        if(!games.isEmpty()){
-            games.forEach(g -> {
-                g.setImages(imageService.listByGameId(g.getId()));
-            });
-        }
-
-        model.addAttribute("games", games);
-
-        return "/views/games-list";
+        return "/views/bg-list";
     }
 
     @GetMapping("/list/by-designer/{id}")

@@ -1,0 +1,68 @@
+.atropos-box{
+    width: fit-content;
+    height: fit-content;
+}
+
+.atropos-scale, .atropos-rotate, .atropos-inner{
+    overflow: visible;
+    position:relative;
+}
+
+.bg-list-container{
+    position: relative;
+    z-index: 1;
+}
+
+.games-container{
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    margin: auto;
+    align-content: flex-start;
+    gap: 2.5rem 3.2rem;
+    padding: 0 1.25rem;
+}
+
+.game-container{
+    box-sizing: border-box;
+    
+}
+
+.title-container{
+    max-width:12.5rem;
+}
+
+.title-container .game-title{
+    margin:0;
+    font-size: 1.2rem;
+    font-family:"Lato";
+    font-weight:700;
+    color:#808080;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 80%;
+}
+
+.title-container .year{
+    margin:0;
+    font-size: 0.8rem;
+    font-family:"Lato";
+    font-weight:400;
+    color:#808080;
+    align-self:center;
+}
+
+.img-container{
+    box-sizing: border-box;
+    box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.4);
+}
+
+.img-container img{
+    width: 12.5rem;
+    height: 12.5rem;
+    object-fit: cover;
+    object-position:top;
+}

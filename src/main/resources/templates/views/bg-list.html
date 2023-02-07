@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+ <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Board Game Library</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <link th:href="@{/css/atropos.css}" rel="stylesheet">
+    <link th:href="@{/css/style2.css}" rel="stylesheet">
+    <link th:href="@{/css/bg-list-style.css}" rel="stylesheet">
+    <link th:href="@{/css/custom.css}" rel="stylesheet">
+    <link th:href="@{/css/btns.css}" rel="stylesheet">
+</head>
+
+<body>
+
+<div th:replace="layout/fragments :: nav"></div>
+
+<div class="container bg-list-container">
+    <div class="row my-4">
+        <div class="col-10 m-auto">
+
+            <div class="games-container d-flex flex-row flex-wrap justify-content-evenly">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../js/bg-list.js"></script>
+<script src="../js/atropos.js"></script>
+
+<div th:replace="layout/fragments :: scripts"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous">
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!--<script th:src="@{/assets/js/atropos.js}"></script>-->
+
+
+
+</body>
+
+</html>
