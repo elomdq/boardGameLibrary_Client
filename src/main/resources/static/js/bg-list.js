@@ -8,6 +8,11 @@ let gameObj = {
     imgURL:''
 }
 
+// The username and password
+// DO NOT store credentials in your JS file like this
+let username = 'user';
+let password = 'password';
+
 async function loadGames(){
     try {
         await callGamesApi();
@@ -18,11 +23,20 @@ async function loadGames(){
     insertGamesToHTML(gamesList);
 }
 
+function code(username, password){
+    return btoa(`${username}:${password}`);
+}
+
 async function callGamesApi(){
     const url = 'http://localhost:8080/api/library/boardgames/list';
+    const auth;
 
     try {
-        const response = await fetch(url);
+        auth = await code(username, password);
+        console.log(auth)
+        const response = await fetch(url,{
+            headers: {'Authorization': 'Basic '+auth}}
+            );
         const games = await response.json();
         gamesList = games.map(game => game = {...game,...gameObj});
     } catch (error) {
@@ -61,7 +75,7 @@ async function insertGamesToHTML(games = []){
         img.classList.add('img-container');
 
         try {
-            const response = await fetch(`http://localhost:8080/api/library/images/list/${game.id}`);
+            const response = await fetch(`http://localhost:8080/api/library/images/list/${game.id}`,{headers: {'Authorization': 'Basic '+auth}});
             const imgs = await response.json();
             if(imgs[0]){
                 //url =  imgs[0].url.concat('/'+imgs[0].name);
@@ -97,9 +111,7 @@ async function insertGamesToHTML(games = []){
 }
 
 function crearInstanciasAtropos(){
-    console.log('Creando Instancias')
     document.querySelectorAll('.atropos-box').forEach(element=>{
-        console.log('Instancia')
         atroposInstances = [...atroposInstances, Atropos({
             el: element,
             activeOffset: 40,
@@ -116,3 +128,4 @@ function crearInstanciasAtropos(){
         })];
     });
 }
+

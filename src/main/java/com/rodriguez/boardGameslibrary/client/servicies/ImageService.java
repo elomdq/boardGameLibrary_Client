@@ -1,12 +1,11 @@
 package com.rodriguez.boardGameslibrary.client.servicies;
 
+import com.rodriguez.boardGameslibrary.client.config.BasicAuthConfig;
+import com.rodriguez.boardGameslibrary.client.models.BoardGame;
 import com.rodriguez.boardGameslibrary.client.models.Image;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -39,10 +38,15 @@ public class ImageService {
     }
 
     public List<Image> listByGameId(Long gameId){
-        Mono<List<Image>> response = webClient.get().uri("/list/"+gameId).accept(MediaType.APPLICATION_JSON).retrieve().bodyToMono(new ParameterizedTypeReference<List<Image>>() {
+        ResponseEntity<List<Image>> response = restTemplate.exchange("/images/list/"+gameId, HttpMethod.GET, new HttpEntity<>(BasicAuthConfig.createHeaders("admin", "password2")), new ParameterizedTypeReference<List<Image>>() {
         });
-        List<Image> images = response.block();
-        return images;
+
+        return response.getBody();
+
+//        Mono<List<Image>> response = webClient.get().uri("/list/"+gameId).accept(MediaType.APPLICATION_JSON).retrieve().bodyToMono(new ParameterizedTypeReference<List<Image>>() {
+//        });
+//        List<Image> images = response.block();
+//        return images;
     }
 
     public Image byId(Long id){

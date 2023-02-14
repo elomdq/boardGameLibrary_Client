@@ -1,5 +1,6 @@
 package com.rodriguez.boardGameslibrary.client.servicies;
 
+import com.rodriguez.boardGameslibrary.client.config.BasicAuthConfig;
 import com.rodriguez.boardGameslibrary.client.models.BoardGame;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -30,7 +31,7 @@ public class BoardGameService {
         /*Mono<List<BoardGame>> response = client.get().uri("/list").accept(MediaType.APPLICATION_JSON).retrieve().bodyToMono(new ParameterizedTypeReference<List<BoardGame>>() {});
         return response.block();*/
 
-        ResponseEntity<List<BoardGame>> response = restTemplate.exchange("/boardgames/list", HttpMethod.GET, null, new ParameterizedTypeReference<List<BoardGame>>() {
+        ResponseEntity<List<BoardGame>> response = restTemplate.exchange("/boardgames/list", HttpMethod.GET, new HttpEntity<>(BasicAuthConfig.createHeaders("admin", "password2")), new ParameterizedTypeReference<List<BoardGame>>() {
         });
 
         return response.getBody();
@@ -66,7 +67,14 @@ public class BoardGameService {
 
     public BoardGame save(BoardGame game){
 
-        HttpEntity<BoardGame> gameEntity = new HttpEntity<>(game);
+        HttpEntity<BoardGame> gameEntity = new HttpEntity<>(game, BasicAuthConfig.createHeaders("admin", "password2"));
+
+        System.out.println(gameEntity);
+        System.out.println("Body");
+        System.out.println(gameEntity.getBody());
+        System.out.println(gameEntity.getBody().getName());
+        System.out.println("Header");
+        System.out.println(gameEntity.getHeaders());
 
         BoardGame persistedGame = restTemplate.postForObject("/boardgames",gameEntity, BoardGame.class);
 

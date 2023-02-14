@@ -39,6 +39,7 @@ public class BoardGameController {
 //
 //        return "/views/games-list";
 //    }
+
     @GetMapping("/list")
     public String gamesList(Model model){
 
@@ -98,7 +99,7 @@ public class BoardGameController {
         return "/views/game-add";
     }
 
-    @PostMapping(value = "/add", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(path = "/add", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public String add(Model model,
                       @ModelAttribute("game") BoardGame game,
                       @RequestPart("file") MultipartFile file){

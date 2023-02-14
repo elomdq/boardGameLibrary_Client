@@ -1,5 +1,6 @@
 package com.rodriguez.boardGameslibrary.client.servicies;
 
+import com.rodriguez.boardGameslibrary.client.config.BasicAuthConfig;
 import com.rodriguez.boardGameslibrary.client.models.Designer;
 import com.rodriguez.boardGameslibrary.client.models.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +38,7 @@ public class DesignerService {
 
         ResponseEntity<List<Designer>> rateResponse =
                 restTemplate.exchange("/designers/list",
-                        HttpMethod.GET,null, new ParameterizedTypeReference<List<Designer>>() {
-                        });
+                        HttpMethod.GET,new HttpEntity<>(BasicAuthConfig.createHeaders("user", "password")), new ParameterizedTypeReference<List<Designer>>(){});
         List<Designer> designers = rateResponse.getBody();
 
         return designers;
