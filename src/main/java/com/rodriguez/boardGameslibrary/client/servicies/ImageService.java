@@ -38,15 +38,14 @@ public class ImageService {
     }
 
     public List<Image> listByGameId(Long gameId){
-        ResponseEntity<List<Image>> response = restTemplate.exchange("/images/list/"+gameId, HttpMethod.GET, new HttpEntity<>(BasicAuthConfig.createHeaders("admin", "password2")), new ParameterizedTypeReference<List<Image>>() {
-        });
+        ResponseEntity<List<Image>> response = restTemplate
+                .exchange("/images/list/"+gameId
+                        , HttpMethod.GET
+                        , new HttpEntity<>(BasicAuthConfig.createHeaders("admin", "password2"))
+                        , new ParameterizedTypeReference<List<Image>>(){}
+                        );
 
         return response.getBody();
-
-//        Mono<List<Image>> response = webClient.get().uri("/list/"+gameId).accept(MediaType.APPLICATION_JSON).retrieve().bodyToMono(new ParameterizedTypeReference<List<Image>>() {
-//        });
-//        List<Image> images = response.block();
-//        return images;
     }
 
     public Image byId(Long id){

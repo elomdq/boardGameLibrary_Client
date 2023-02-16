@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.ApplicationScope;
 import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
+import java.util.Map;
 
 @ApplicationScope
 @Controller
@@ -24,21 +25,21 @@ public class BoardGameController {
     @Autowired
     private ImageService imageService;
 
-//    @GetMapping("/list")
-//    public String gamesList(Model model){
-//
-//        List<BoardGame> games = boardGameService.list();
-//
-//        if(!games.isEmpty()){
-//            games.forEach(g -> {
-//                g.setImages(imageService.listByGameId(g.getId()));
-//            });
-//        }
-//
-//        model.addAttribute("games", games);
-//
-//        return "/views/games-list";
-//    }
+    /*@GetMapping("/list")
+    public String gamesList(Model model){
+
+        List<BoardGame> games = boardGameService.list();
+
+        if(!games.isEmpty()){
+            games.forEach(g -> {
+                g.setImages(imageService.listByGameId(g.getId()));
+            });
+        }
+
+        model.addAttribute("games", games);
+
+        return "/views/games-list";
+    }*/
 
     @GetMapping("/list")
     public String gamesList(Model model){

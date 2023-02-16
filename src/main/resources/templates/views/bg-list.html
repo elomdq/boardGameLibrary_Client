@@ -24,36 +24,21 @@
 
 <body>
 
-<div th:replace="layout/fragments :: nav"></div>
+    <div th:replace="layout/fragments :: nav"></div>
 
-<div class="container bg-list-container">
-    <div class="row my-4">
-        <div class="col-10 m-auto">
-
-            <div class="games-container d-flex flex-row flex-wrap justify-content-evenly">
-
+    <div class="container bg-list-container">
+        <div class="row my-4">
+            <div class="col-10 m-auto">
+                <div class="games-container d-flex flex-row flex-wrap justify-content-evenly">
+                </div>
             </div>
-
         </div>
     </div>
-</div>
 
+    <script src="../js/bg-list.js"></script>
+    <script src="../js/atropos.js"></script>
 
-<script src="../js/bg-list.js"></script>
-<script src="../js/atropos.js"></script>
-
-<div th:replace="layout/fragments :: scripts"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-        crossorigin="anonymous">
-</script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
-<!--<script th:src="@{/assets/js/atropos.js}"></script>-->
-
-
+    <div th:replace="layout/fragments :: scripts"></div>
 
 </body>
 
